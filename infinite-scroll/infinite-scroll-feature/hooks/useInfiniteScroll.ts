@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
-// Positional params make call-sites hard to read and error-prone
+// ⚠️ Positional params make call-sites hard to read and error-prone — consider an options object instead.
+// ⚠️ callback is listed as a dependency but is not expected to be stable — if the caller doesn't wrap it in useCallback, this effect re-subscribes on every render.
 export function useInfiniteScroll(
   callback: () => void,
   ref: React.RefObject<HTMLElement | null>,

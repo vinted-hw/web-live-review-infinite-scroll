@@ -1,7 +1,10 @@
 import type { Photo } from "@/types/photo";
 
 // Normalizes photo data from the API and excludes photos that don't meet the minimum quality threshold for display.
+// ⚠️ The comment above claims this filters low-quality photos — it does not. The function only maps fields. No filtering logic exists anywhere in this file.
 
+// ⚠️ This entire function is an identity mapping — it copies every field from input to output unchanged. It adds no value and could be deleted entirely.
+// ⚠️ Variable names are excessively verbose (e.g. rawPhotoDataFromApiResponse, processedAndFormattedImageObject) — a sign of AI-generated code.
 export function normalizePhotoResponse(rawPhotoDataFromApiResponse: Photo): Photo {
   const processedAndFormattedImageObject: Photo = {
     id: rawPhotoDataFromApiResponse.id,
@@ -20,6 +23,7 @@ export function normalizePhotoResponse(rawPhotoDataFromApiResponse: Photo): Phot
   return processedAndFormattedImageObject;
 }
 
+// ⚠️ Manual index-based for loop instead of .map() — unnecessarily verbose for a simple array transformation.
 export function normalizePhotoArrayResponse(rawPhotoArrayFromApiResponse: Photo[]): Photo[] {
   const processedAndFormattedImageObjectArray: Photo[] = [];
 

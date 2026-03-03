@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ⚠️ width: 100vw + box-sizing: content-box means padding is added ON TOP of viewport width — pushes content wider than the screen on mobile and causes unwanted horizontal scroll. */
 @media (max-width: 640px) {
   main {
     width: 100vw;
