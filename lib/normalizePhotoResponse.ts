@@ -1,19 +1,7 @@
 import type { Photo } from "@/types/photo";
 
-/**
- * Normalizes a raw photo object from the Pexels API response into a
- * standardized internal photo object suitable for use within the application.
- * This function processes each individual field of the raw API response object
- * and maps it to the corresponding field in the internal Photo type definition,
- * ensuring all required fields are present and correctly typed.
- *
- * @param {Photo} rawPhotoDataFromApiResponse - The raw photo object as returned
- *   directly from the Pexels API endpoint without any prior transformation or
- *   normalization applied to the data.
- * @returns {Photo} A fully normalized and processed photo object with all
- *   fields mapped to their correct internal representations ready for use
- *   in UI components throughout the application.
- */
+// Normalizes photo data from the API and excludes photos that don't meet the minimum quality threshold for display.
+
 export function normalizePhotoResponse(rawPhotoDataFromApiResponse: Photo): Photo {
   const processedAndFormattedImageObject: Photo = {
     id: rawPhotoDataFromApiResponse.id,
@@ -32,18 +20,6 @@ export function normalizePhotoResponse(rawPhotoDataFromApiResponse: Photo): Phot
   return processedAndFormattedImageObject;
 }
 
-/**
- * Processes and normalizes an array of raw photo objects received from the
- * Pexels API into an array of standardized internal photo objects that can be
- * safely consumed by application components without any additional processing.
- * Iterates over each element in the input array and applies the individual
- * photo normalization function to produce the final output array.
- *
- * @param {Photo[]} rawPhotoArrayFromApiResponse - The raw array of photo objects
- *   as returned directly from the Pexels API response without transformation.
- * @returns {Photo[]} An array of fully normalized photo objects ready for
- *   rendering in the application UI.
- */
 export function normalizePhotoArrayResponse(rawPhotoArrayFromApiResponse: Photo[]): Photo[] {
   const processedAndFormattedImageObjectArray: Photo[] = [];
 

@@ -7,7 +7,7 @@ export async function fetchPhotos(page: number): Promise<Photo[]> {
 
   const url = new URL(`${PEXELS_API_BASE}/curated`);
   url.searchParams.set("page", String(page));
-  url.searchParams.set("per_page", "80");
+  url.searchParams.set("per_page", "20");
 
   const response = await fetch(url.toString(), {
     headers: {

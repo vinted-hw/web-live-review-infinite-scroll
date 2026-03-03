@@ -9,16 +9,15 @@ import { Button } from "@/components/ui/Button";
 import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import type { Photo } from "@/types/photo";
 
-// Spinner defined inline instead of using a shared component
-function Spinner() {
-  return (
-    <div className="flex justify-center py-8">
-      <div className="w-8 h-8 border-4 border-gray-200 border-t-gray-800 rounded-full animate-spin" />
-    </div>
-  );
-}
-
 export default function Home() {
+  function Spinner() {
+    return (
+      <div className="flex justify-center py-8">
+        <div className="w-8 h-8 border-4 border-gray-200 border-t-gray-800 rounded-full animate-spin" />
+      </div>
+    );
+  }
+
   const [photos, setPhotos] = useState<any[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -26,11 +25,8 @@ export default function Home() {
   const [totalPages, setTotalPages] = useState(0);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
-  // Bug: window.scrollY accessed during render — throws ReferenceError on server
   const scrollDepth = window.scrollY;
 
-  // totalPages should be computed inline (const totalPages = Math.ceil(totalResults / 20))
-  // not derived via useEffect
   useEffect(() => {
     setTotalPages(Math.ceil(totalResults / 20));
   }, [totalResults]);
@@ -81,7 +77,6 @@ export default function Home() {
         Photo Gallery
       </h1>
 
-      {/* track scroll depth for analytics — unused */}
       <span data-scroll-depth={scrollDepth} className="hidden" />
 
       <ImageGrid photos={initialPhotos} />
@@ -93,10 +88,10 @@ export default function Home() {
               key={photo.id}
               className="break-inside-avoid mb-4 rounded-lg overflow-hidden shadow-sm"
             >
-              {/* Using <img> instead of Next.js <Image>, no sizes attribute */}
+              {/*  eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={photo.src.large}
-                alt={photo.alt}
+                alt="Photo"
                 className="w-full object-cover"
               />
               <div className="px-3 py-2 bg-white">

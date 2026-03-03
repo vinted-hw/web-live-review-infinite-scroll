@@ -11,7 +11,7 @@ export default function ImageCard({ photo }: ImageCardProps) {
       <div className="relative w-full" style={{ aspectRatio: `${photo.width} / ${photo.height}` }}>
         <Image
           src={photo.src.large}
-          alt={photo.alt}
+          alt="Image from Pexels"
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
           className="object-cover"
