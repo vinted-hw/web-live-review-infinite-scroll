@@ -1,5 +1,5 @@
 import type { Photo } from "@/types/photo";
-import ImageCard from "./ImageCard";
+import ImageCard from "@/infinite-scroll/infinite-scroll-feature/components/ImageCard";
 
 interface ImageGridProps {
   photos: Photo[];

@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import ImageGrid from "@/app/components/ImageGrid";
-import { fetchPhotos } from "@/lib/pexels";
-import { normalizePhotoArrayResponse } from "@/lib/normalizePhotoResponse";
-import { FEATURE_FLAGS } from "@/lib/featureFlags";
+import ImageGrid from "@/infinite-scroll/infinite-scroll-feature/components/ImageGrid";
+import { fetchPhotos } from "@/infinite-scroll/infinite-scroll-data/pexels";
+import { normalizePhotoArrayResponse } from "@/infinite-scroll/infinite-scroll-data/normalizePhotoResponse";
+import { FEATURE_FLAGS } from "@/infinite-scroll/infinite-scroll-feature/featureFlags";
 import { Button } from "@/components/ui/Button";
-import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
+import { useInfiniteScroll } from "@/infinite-scroll/infinite-scroll-feature/hooks/useInfiniteScroll";
 import type { Photo } from "@/types/photo";
 
 export default function Home() {

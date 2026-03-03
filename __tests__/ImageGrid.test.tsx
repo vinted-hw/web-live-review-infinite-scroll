@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ImageGrid from "@/app/components/ImageGrid";
+import ImageGrid from "@/infinite-scroll/infinite-scroll-feature/components/ImageGrid";
 
 describe("ImageGrid", () => {
   it("renders a photo", () => {
@@ -32,7 +32,6 @@ describe("ImageGrid", () => {
       />
     );
 
-    // Only checks hardcoded alt text — will fail as soon as ImageCard changes
     expect(screen.getByAltText("Photo by John")).toBeInTheDocument();
   });
 });
