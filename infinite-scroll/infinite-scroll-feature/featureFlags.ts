@@ -1,0 +1,4 @@
+export const FEATURE_FLAGS = {
+  INFINITE_SCROLL_ENABLED:
+    process.env.NEXT_PUBLIC_INFINITE_SCROLL_ENABLED !== "false",
+};
